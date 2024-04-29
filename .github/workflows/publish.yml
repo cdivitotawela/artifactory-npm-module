@@ -18,8 +18,8 @@ jobs:
         env:
           JF_URL: ${{ secrets.JF_URL }}
         with:
-          oidc-provider-name: github
-      
+          oidc-provider-name: jfrog-github
+
       - name: JFrog CLI
         run: |
           jf rt ping
