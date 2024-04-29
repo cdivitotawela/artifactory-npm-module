@@ -23,4 +23,4 @@ jobs:
 
       - name: JFrog CLI
         run: |
-          jf rt ping
+          jf npm-config --repo-deploy=npm-mmig
