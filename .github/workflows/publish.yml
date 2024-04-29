@@ -1,0 +1,20 @@
+name: Publish NPM module
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: checkout@v4
+
+      - name: Setup JFrog
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: ${{ secrets.JF_URL }}
+      
+      - name: JFrog CLI
+        run: |
+          jf rt ping
