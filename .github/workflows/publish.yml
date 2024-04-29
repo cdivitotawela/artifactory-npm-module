@@ -27,8 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          ls -la
-          npm install
+          jf npm install
 
       - name: Publish package
         run: jf npm publish 
