@@ -25,17 +25,9 @@ jobs:
         run: jf npm-config --repo-deploy=npm-mmig --repo-resolve=npm
 
       - name: Install dependencies
-        run: jf npm install --build-name my-npm-build --build-number 1
-
-      - name: Add environment variables to build info
-        run: jf rt bce my-npm-build 1
-
-      - name: Add git info to build info
-        run: jf rt bag my-npm-build 1
+        run: jf npm install
 
       - name: Publish package
-        run: jf npm publish --build-name my-npm-build --build-number 1
-          
-      - name: Publish the build info
-        run: jf rt bp my-npm-build 1    
+        run: jf npm publish 
+            
           
