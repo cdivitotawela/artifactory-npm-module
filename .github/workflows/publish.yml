@@ -21,11 +21,21 @@ jobs:
           oidc-provider-name: github
           oidc-audience: jfrog-github
 
-      - name: JFrog CLI
-        run: |
-          jf npm-config --repo-deploy=npm-mmig --repo-resolve=npm
-          jf npm install --build-name my-npm-build --build-number 1
-          jf rt bce my-npm-build 1
-          jf rt bag my-npm-build 1
-          jf npm publish --build-name my-npm-build --build-number 1
-          jf rt bp my-npm-build 1
+      - name: Configure repositories
+        run: jf npm-config --repo-deploy=npm-mmig --repo-resolve=npm
+
+      - name: Install dependencies
+        run: jf npm install --build-name my-npm-build --build-number 1
+
+      - name: Add environment variables to build info
+        run: jf rt bce my-npm-build 1
+
+      - name: Add git info to build info
+        run: jf rt bag my-npm-build 1
+
+      - name: Publish package
+        run: jf npm publish --build-name my-npm-build --build-number 1
+          
+      - name: Publish the build info
+        run: jf rt bp my-npm-build 1    
+          
