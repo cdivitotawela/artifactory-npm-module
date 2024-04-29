@@ -24,3 +24,8 @@ jobs:
       - name: JFrog CLI
         run: |
           jf npm-config --repo-deploy=npm-mmig
+          jf npm install --build-name my-npm-build --build-number 1
+          jf rt bce my-npm-build 1
+          jf rt bag my-npm-build 1
+          jf npm publish --build-name my-npm-build --build-number 1
+          jf rt bp my-npm-build 1
