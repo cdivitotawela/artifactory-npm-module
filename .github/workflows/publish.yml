@@ -25,7 +25,9 @@ jobs:
         run: jf npm-config --repo-deploy=npm-mmig --repo-resolve=npm
 
       - name: Install dependencies
-        run: jf npm install
+        run: |
+          ls -la
+          jf npm install
 
       - name: Publish package
         run: jf npm publish 
