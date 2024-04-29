@@ -18,7 +18,8 @@ jobs:
         env:
           JF_URL: ${{ secrets.JF_URL }}
         with:
-          oidc-provider-name: jfrog-github
+          oidc-provider-name: github
+          oidc-audience: jfrog-github
 
       - name: JFrog CLI
         run: |
